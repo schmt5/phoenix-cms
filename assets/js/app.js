@@ -25,20 +25,7 @@ import { LiveSocket } from "phoenix_live_view";
 import { hooks as colocatedHooks } from "phoenix-colocated/content";
 import topbar from "../vendor/topbar";
 
-const ContentEditable = {
-  mounted() {
-    this.el.contentEditable = "true";
-
-    this.el.addEventListener("blur", () => {
-      const slug = this.el.dataset.slug;
-      const text = this.el.innerHTML;
-
-      if (slug && text) {
-        this.pushEvent("set_content", { slug: slug, text: text });
-      }
-    });
-  },
-};
+import ContentEditable from "./hooks/content_editable";
 
 const csrfToken = document
   .querySelector("meta[name='csrf-token']")

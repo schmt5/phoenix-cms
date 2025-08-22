@@ -7,8 +7,6 @@ defmodule ContentWeb.DemoLive do
     entries = Cms.list_entries()
     entries_by_slug = Map.new(entries, fn entry -> {entry.slug, entry.text} end)
 
-    IO.inspect(entries)
-
     {:ok, socket |> assign(:entries_by_slug, entries_by_slug) |> assign(:entries, entries)}
   end
 

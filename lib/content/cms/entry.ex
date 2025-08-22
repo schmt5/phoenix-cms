@@ -14,5 +14,18 @@ defmodule Content.Cms.Entry do
     entry
     |> cast(attrs, [:text, :slug])
     |> validate_required([:text, :slug])
+    |> sanitize_text()
+  end
+
+  defp sanitize_text(changeset) do
+    case get_change(changeset, :text) do
+      nil ->
+        changeset
+
+      text ->
+        # Allow basic formatting tags, strip dangerous ones
+        sanitized = HtmlSanitizeEx.basic_html(text) |> String.trim()
+        put_change(changeset, :text, sanitized)
+    end
   end
 end
