@@ -9,32 +9,6 @@ The simplest CMS for Phoenix LiveView that transforms any webpage into an editab
 - **WYSIWYG Interface**: What You See Is What You Get - edit content exactly as it appears
 - **No Admin Panel Required**: The website itself becomes the admin interface
 
-## 🚀 Quick Start
-
-### Prerequisites
-
-- Elixir 1.15+
-- Phoenix 1.8+
-- SQLite (or your preferred database)
-
-### Installation
-
-1. **Clone and setup**:
-```bash
-git clone <repository-url>
-cd content
-mix setup
-```
-
-2. **Start the server**:
-```bash
-mix phx.server
-```
-
-3. **Visit the demo**: Open [http://localhost:4000](http://localhost:4000)
-
-4. **Start editing**: Click on any text content to edit it inline!
-
 ## 🎯 How It Works
 
 The magic happens through the `ContentEditable` JavaScript hook that:
@@ -78,9 +52,8 @@ const ContentEditable = {
 };
 ```
 
-
-
-
+## Extend it
+May you can extend it with a Rich Text Editor. See [Phoenix TipTap Editor](https://tiptap-phoenix.fly.dev/).
 
 
 
@@ -97,18 +70,31 @@ const ContentEditable = {
 ```
 
 
+## 🚀 Quick Start
 
-### Extending the Hook
+### Prerequisites
 
-You can enhance the `ContentEditable` hook to add features like:
+- Elixir 1.15+
+- Phoenix 1.8+
+- SQLite (or your preferred database)
 
-- **Rich text editing** (bold, italic, links)
-- **Autosave** while typing
-- **Validation** before saving
-- **Loading states** during saves
-- **Keyboard shortcuts** (Ctrl+S to save)
+### Installation
 
+1. **Clone and setup**:
+```bash
+git clone <repository-url>
+cd content
+mix setup
+```
 
+2. **Start the server**:
+```bash
+mix phx.server
+```
+
+3. **Visit the demo**: Open [http://localhost:4000](http://localhost:4000)
+
+4. **Start editing**: Click on any text content to edit it inline!
 
 ## 🔒 Security Considerations
 
